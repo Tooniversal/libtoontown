@@ -164,7 +164,7 @@ Colors(const LColorf &name_fg, const LColorf &name_bg,
 
 static const int num_button_states = 4;
 static const int num_color_codes = 9;
-static const int num_whisper_types = 6;
+static const int num_whisper_types = 7;
 
 // The following defines the table of colors for the Nametags in
 // various states.
@@ -522,13 +522,41 @@ static NametagGlobals::Colors toontown_boarding_group_colors[num_button_states] 
                          LColorf(0.97f, 0.43f, 0.1f, 0.6f)),  // chat bg
 };
 
+// Guild Whisper Messages.
+static NametagGlobals::Colors guild_colors[num_button_states] = {
+  // Guild whisper, not selected.
+  NametagGlobals::Colors(LColorf(0.0f, 0.0f, 0.0f, 1.0f),   // name fg
+                         LColorf(0.8f, 0.8f, 0.8f, 0.5f),   // name bg
+                         LColorf(0.0f, 0.0f, 0.0f, 1.0f),   // chat fg
+                         LColorf(0.4f, 0.9f, 0.1f, 0.6f)),  // chat bg
+
+  // Guild whisper, clicked.
+  NametagGlobals::Colors(LColorf(0.5f, 0.5f, 0.5f, 1.0f),   // name fg
+                         LColorf(0.2f, 0.2f, 0.2f, 0.6f),   // name bg
+                         LColorf(1.0f, 0.5f, 0.5f, 1.0f),   // chat fg
+                         LColorf(1.0f, 1.0f, 1.0f, 0.8f)),  // chat bg
+
+  // Guild whisper, rollover.
+  NametagGlobals::Colors(LColorf(0.5f, 0.5f, 0.5f, 1.0f),   // name fg
+                         LColorf(1.0f, 1.0f, 1.0f, 1.0f),   // name bg
+                         LColorf(0.0f, 0.0f, 0.0f, 1.0f),   // chat fg
+                         LColorf(0.45f, 0.8f, 0.3f, 0.6f)),  // chat bg
+
+  // Guild whisper, inactive.
+  NametagGlobals::Colors(LColorf(0.3f, 0.3f, 0.3f, 1.0f),   // name fg
+                         LColorf(0.8f, 0.8f, 0.8f, 0.5f),   // name bg
+                         LColorf(0.0f, 0.0f, 0.0f, 1.0f),   // chat fg
+                         LColorf(0.45f, 0.8f, 0.2f, 0.6f)),  // chat bg
+};
+
 static NametagGlobals::Colors *whisper_color_table[num_whisper_types] = {
   whisper_colors,      // WT_normal
   whisper_colors,      // WT_quick_talker
   system_colors,       // WT_system
   system_colors,       // WT_battle_SOS
   emote_whisper_colors, // WT_emote
-  toontown_boarding_group_colors //WT_toontown_boarding_group
+  toontown_boarding_group_colors, //WT_toontown_boarding_group
+  guild_colors //WT_guild
 };
 
 LColorf NametagGlobals::balloon_modulation_color;
